@@ -1,0 +1,95 @@
+.logo img{
+    display: flex;
+    flex-direction: column;
+    width:103.5%;
+    height:300px;
+   margin-right: -15%;
+    margin-left: -2%;
+    padding: 0%;
+}
+.title {
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    margin-left: 42%;
+   
+}
+.title h3{
+      color:#A07016;
+}
+.products{
+    background-color: #E6ECF2;
+    display: flex;
+    flex-direction: row;
+    
+}
+.products1{
+    margin-top: 5%;
+    background-color: #E6ECF2;
+    display: flex;
+    flex-direction: row;
+    
+}
+.product{
+    border: 1.5px solid ;
+    border-radius: 5px;
+    border-color: #A07016;
+    background-color: white;
+    width: 25%;
+    height: 25%;
+    padding: 2% ;
+    margin: 2%;
+}
+.product img{
+    width: 100%;
+    height: 50%;
+    
+}
+.product p{
+    width: 80%;
+    
+}
+.product h5 {
+    font-size: 20px;
+    color: #A07016;
+    margin-top: -2%;
+    margin-bottom: 2%;
+}
+.product button{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+    border: 1px solid ;
+    border-radius: 10px;
+    border-color: #A07016;
+    background-color: white;
+    color: #A07016;
+    margin-left: 15%;
+   
+} 
+.a{
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.b{
+    padding-left: 24%;
+    padding-right: 24%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.number-page{
+    margin-top: 2%;
+    margin-left: 45%;
+}
+.number-page button{
+    background-color: white;
+    shape-outside: border-box;
+    border: 1px solid #E8E8E8;
+    border-radius: 100%;
+    
+}
+.number-page input{
+    width :2%;
+}

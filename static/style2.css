@@ -1,0 +1,104 @@
+.container{
+    display: flex;
+    flex-direction: column;
+          
+  margin-left: auto;
+  margin-right: auto;
+}
+.logo img{
+    width: 250px;
+    height: 250px;
+    display: center;
+      display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -2%;
+
+}
+.login{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: #76520E;
+    margin-bottom: 1%;
+    margin-top: -3%;
+}
+
+.login{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size:30px;
+    font-weight: bold;
+}
+.Email{
+  display:flex;
+  flex-direction: column;
+  margin-left: 30%;
+  margin-right: 30%;
+  
+}
+.Password{
+  display:flex;
+  flex-direction: column;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+.log{
+  display:flex;
+  flex-direction: column;
+  margin-left:42%;
+  padding-top: 7px;
+padding-bottom: 7px;
+padding-left: 5%;
+padding-right: 5%;
+color: White;
+background-color:#A07016;
+margin-bottom: 4%;
+border-radius: 6px;
+font-size:20px;
+font-weight: bold;
+border-color:#A07016 ;
+}
+.sign{
+  display:flex;
+  flex-direction: column;
+  margin-left:42%;
+
+}
+.sign a{
+  display:flex;
+  flex-direction: column;
+margin-left: 7%;
+font-size:25px;
+font-weight: bold;
+color: #A07016;
+}
+.textcolor{
+  color: #76520E;
+}
+ input{
+padding-top: 2%;
+padding-bottom: 2%;
+border: 3px solid var(--Saker);
+border-radius: 10px;
+margin-bottom: 5%;
+}
+*{
+  --Saker:#76520E;
+}
+.for{
+  display:flex;
+  flex-direction: column;
+  margin-left: 62%;
+  font-size:20px;
+color: #A07016;
+margin-top: -1%;
+margin-bottom: 1%;
+}
+span{
+  color: black;
+  font-family: Sans-serif;
+  font-size:20px;
+  margin-bottom: 2%;
+}

@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style3.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="logo"><img src="{% static 'homeimage.jpeg' %}" alt="sakernotfound"></div>
+    <div class="title"><h3>Espresso Machines</h3></div>
+    <div class="products">
+        {% for i in products %}
+        <div class="product">
+            <img src="{% static 'normal.jpg' %}" alt="sakernotfound">
+            <p>{{ i.name }}</p>
+            <h5>{{ i.price }}</h5> 
+            <button class="a">Add to Cart</button>
+            <button class="b">Buy Now</button> 
+        </div>
+        {% endfor %}    
+    </div>
+    <div class="number-page">
+        <button>&lt;&lt;</button>
+        <button>&lt;</button>
+        <input type="number" placeholder="1">
+        <span>/5</span>
+        <button>&gt;</button>
+        <button>&gt;&gt;</button>
+    </div>
+</body>
+</html>

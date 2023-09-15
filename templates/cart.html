@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Document</title>
+</head>
+<body>
+  <h2 class="text-center p-5 text-3xl font-semibold">YOUR CART</h2>
+  <main class="flex">
+    <div class="flex-col w-8/12">
+      <section class="text-center p-4 font-semibold border-r-2">
+        <div class="grid grid-cols-4 py-3 border-b-2 text-gray-600">
+          <p>Product</p>
+          <p>Price</p>
+          <p>Quantity</p>
+          <p>Subtotal</p>
+        </div>
+
+        <input id="userID" type="hidden" value="{{userID}}">
+
+        <script>
+          /*
+
+          TODO:
+          1. Create a function to save cart quantity
+          
+          */
+
+          async function saveQuantityRequest(itemID, quantity) {
+            return await fetch({
+              url: "/saveQuantity",
+              method: "POST",
+              body: JSON.stringify({
+                userID: document.getElementById("userID").value,
+                itemID: itemID,
+                quantity: quantity,
+              })
+            })
+          }
+        </script>
+
+        {% for item in items %}
+        <form class="grid grid-cols-4 grid-rows-6 py-6 text-gold-regular" method="post" action="/removeCartItem">
+          <input name="id" type="hidden" value="{{item.id}}">
+          <div class="row-span-5 flex flex-col justify-center">
+            <img class="mb-6 border-gold-regular border" src={{item.image}} />
+            <p class="text-left text-black">{{item.title}}</p>
+          </div>
+          <p class="row-span-5 flex flex-col justify-center">{{item.price}}</p>
+          <div class="row-span-5 flex flex-col justify-center">
+            <input id="{{item.id}}-quan" class="mx-16 text-right border-gold-regular border rounded" type="number" min="1" value="{{item.quantity}}"/>
+            <!-- <input id="{{item.id}}-changeQuan" type="button" value="Save Quantity" disabled> -->
+          </div>
+          <p class="row-span-5 flex flex-col justify-center" id="{{item.id}}-total">{{item.subtotal}}</p>
+          <input type="submit" value="Remove" class="col-span-4 border-b-2 text-gray-600 text-right mx-7 p-1"/>
+        </form>
+        {% endfor %}
+        
+      </section>
+      <div class="flex justify-between items-center p-4">
+        <form class="flex" action="">
+          <input class="p-2 border text-center rounded-l border-black" type="text" placeholder="Coupon Code"/>
+          <input class="p-2 border text-center rounded-r border-black text-white bg-gold-bold font-semibold" type="submit" value="Apply Coupon"/>
+        </form>
+        <button class="border-black border px-6 py-4 rounded">Remove all</button>
+      </div>
+    </div>
+
+    <section class="w-4/12 p-4 border-gold-bold border m-5 h-min">
+      <h3 class="text-gold-bold font-bold text-2xl">Cart total</h3>
+      <div class="flex-col">
+        <div class="grid grid-cols-2 border-b-2 py-4">
+          <h4 class="font-semibold">Subtotal</h4>
+          <p>5,384$</p>
+        </div>
+        <div class="grid grid-cols-2 border-b-2 py-4">
+          <h4 class="font-semibold">Shipping</h4>
+          <p>Shipping costs are calculated during checkout.</p>
+        </div>
+        <div class="grid grid-cols-2 py-4">
+          <h4 class="font-semibold text-xl">Total</h4>
+          <p class="font-bold text-lg text-gold-regular">5,384$</p>
+        </div>
+        <div class="w-full">
+          <a class="text-center bg-gold-regular text-white" href="#">Proceed to checkout</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

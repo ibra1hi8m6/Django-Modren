@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Checkout{% endblock title %}
+
+{% block dependencies %}
+<link rel="stylesheet" href="{% static 'CSS/master.css' %}" />
+{% endblock dependencies %}
+
+{% block content %}
+<div class="parts">
+    <div class="container">
+        <h1 class="header">Checkout</h1>
+        <div class="hor_line"></div>
+        <h2 class="header2">Billing details</h2>
+        <div class="part_one">
+            <ul class="circular-checkboxlist">
+                <li>
+                    <input type="checkbox" id="checkbox1" />
+                    <label class="item1" for="checkbox1">
+                        Default address
+                    </label>
+                </li>
+                <br>
+                <li>
+                    <input type="checkbox" id="checkbox2" />
+                    <label class="item2" for="checkbox2">
+                        New address
+                    </label>
+                </li>
+            </ul>
+            <div class="checkout-list">
+                <div class="country">
+                    <label for="country">Country / Region</label>
+                    <input type="text" id="country" name="country" />
+                </div>
+                <div class="city">
+                    <label for="city">Town / City</label>
+                    <input type="text" id="city" name="city" />
+                </div>
+                <div class="address">
+                    <label for="address">Street address</label>
+                    <input type="text" id="address" name="address" />
+                </div>
+                <div class="cafe_name">
+                    <label for="restaurant">Restaurant / Cafe Name</label>
+                    <input type="text" id="restaurant" name="restaurant" />
+                </div>
+                <div class="zip">
+                    <label for="zip">Postcode / ZIP</label>
+                    <input type="text" id="zip" name="zip" />
+                </div>
+                <div class="phone">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" />
+                </div>
+                <div class="note">
+                    <label for="note">Any note (optional)</label>
+                    <textarea id="note" name="note"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container2">
+        <span class="header3">Your order</span>
+        <div class="title">
+            <span class="product">Product</span>
+            <span class="price">Subtotal</span>
+        </div>
+        <div class="items1">
+            <span class="product">ProductName</span>
+            <span class="price">Price $</span>
+        </div>
+        <div class="items2">
+            <span class="product">Subtotal</span>
+            <span class="price">Price $</span>
+        </div>
+        <div class="items3">
+            <span class="product">Shipping</span>
+            <span class="price">Price $</span>
+        </div>
+        <div class="items4">
+            <span class="product">Total</span>
+            <span class="price">Price $</span>
+        </div>
+        <div class="payment">
+            <span class="text1">Payment by Card</span>
+            <img src="{% static 'IMAGE.jpg' %}" alt="mohamed">
+        </div>
+        <p class="text2">You can pay securely with your debit or credit card</p>
+        <div class="checklist">
+            <input type="checkbox" id="item1" name="item1" value="item1">
+            <label for="item1">I have read and agree to the website terms and conditions</label>
+        </div>
+        <div class="my_button">
+            <button class="my-button">Place order</button>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

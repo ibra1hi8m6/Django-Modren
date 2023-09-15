@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block dependencies %}
+<link rel="stylesheet" href="{% static 'CSS/main.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+{% endblock dependencies %}
+{% block title %}
+{{ category.title }}
+{% endblock title %}
+
+{% block content %}
+<div class="background">
+  <img src="/media/{{category.image}}" alt="">
+</div>
+<div class="header">
+  <h3>{{ category.title }}</h3>
+</div>
+<div class="subcategories">
+  {% for subcategory in subcategories %}
+  <div class="subcategory">
+    <img src="/media/{{subcategory.image}}" alt="">
+    <p>{{ subcategory.title }}</p>
+    <a href="">shop all &gt;</a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,345 @@
+/* Start Veriables */
+:root {
+    --main-color: #76520E;
+}
+
+/* End Veriables */
+/* Start Global Rules */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Cairo', sans-serif;
+    font-family: 'Jomhuria', cursive;
+
+    font-family: 'Jost', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* End Global Rules */
+
+/* parts */
+.parts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+
+/* container */
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* Small */
+@media (min-width:786px) {
+    .container {
+        width: 750px;
+    }
+
+    .container .hor_line {
+        max-width: 100%;
+
+
+    }
+
+
+
+}
+
+/* Meduim */
+@media (min-width:992px) {
+    .container {
+        width: 979px;
+    }
+
+    .container .hor_line {
+        max-width: 100%;
+
+    }
+
+
+
+}
+
+/* Large */
+@media (min-width:1200px) {
+    .container {
+        width: 1170px;
+    }
+
+    .container .hor_line {
+        max-width: 70%;
+
+    }
+
+
+
+
+}
+
+.header {
+    text-align: center;
+    font-family: 'Jost';
+    font-weight: 400;
+}
+
+.hor_line {
+    background-color: var(--main-color);
+    height: 5px;
+    margin-top: 30px;
+}
+
+.header2 {
+    font-family: 'Jost';
+    font-weight: 400;
+}
+
+
+
+
+.circular-checkboxlist {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.circular-checkboxlist li {
+    position: relative;
+    margin-bottom: 0.5em;
+    padding-left: 2.5em;
+    cursor: pointer;
+}
+
+.circular-checkboxlist li input[type="checkbox"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.circular-checkboxlist li label:before {
+    content: "\25CB";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -3px;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background-color: #fff;
+    color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.circular-checkboxlist li input[type="checkbox"]:checked+label:before {
+    content: "\2713";
+    background-color: var(--main-color);
+    color: #fff;
+    border-color: var(--main-color);
+}
+
+.item1,
+.item2 {
+    font-family: 'Josefin Sans';
+    font-weight: 600;
+    margin-left: -5px;
+}
+
+.checkout-list {
+    margin-left: 20px;
+}
+
+.checkout-list label {
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Josefin Sans';
+    font-weight: 400;
+    color: #707070;
+}
+
+.checkout-list div {
+    margin-bottom: 15px;
+}
+
+.container input {
+    width: 65%;
+    height: 40px;
+    border: 1px solid var(--main-color);
+
+}
+
+textarea {
+    width: 65%;
+    height: 150px;
+    border: 1px solid var(--main-color);
+
+}
+
+/* container2 */
+.container2 {
+    margin-top: 118px;
+    /* border: 1px solid var(--main-color); */
+
+
+}
+
+.header3 {
+    font-family: 'Jost';
+    font-weight: 400;
+    color: var(--main-color);
+    text-transform: uppercase;
+
+}
+
+.title {
+    margin-top: 10px;
+
+}
+
+.items1,
+.items2,
+.items3,
+.items4 {
+    border-color: transparent transparent #E5E5E5 transparent;
+    border-style: solid;
+    border-width: 1px;
+    margin-top: 5px;
+}
+
+.title .product,
+.title .price {
+    color: #707070;
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.title .price {
+    margin-left: 156px;
+}
+
+.items1 .price {
+    margin-left: 117px;
+}
+
+.items2 .price {
+    margin-left: 151px;
+}
+
+.items3 .price {
+    margin-left: 148px;
+}
+
+.items4 .price {
+    margin-left: 174px;
+}
+
+.container2 .product,
+.items2 .price,
+.items3 .price,
+.items4 .price {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.payment {
+    margin-top: 13px;
+}
+
+.payment .text1 {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 400;
+    color: var(--main-color);
+}
+
+.payment img {
+    vertical-align: top;
+}
+
+.text2 {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: #707070;
+
+}
+
+
+
+.container2 input[type="checkbox"] {
+    display: none;
+    /* hide the checkbox */
+}
+
+.container2 label[for="item1"] {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 17px;
+    color: #000;
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.container2 label[for="item1"]::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #999;
+    background-color: #fff;
+}
+
+.container2 input[type="checkbox"]:checked+label::before {
+    content: "\2713";
+    /* Unicode character for checkmark */
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #999;
+    background-color: var(--main-color);
+    /* change background color when checked */
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.container2 button {
+    display: inline-block;
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 340px;
+    height: 40px;
+}

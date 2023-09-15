@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+    <title>Log in</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="{% static 'Equipen_Logo.png' %}" alt="Saker not found">
+        </div>
+        <span class="login">Log in</span>
+        <form method="post" action="/auth/">
+          {% csrf_token %}
+            <div class="Email textcolor">
+                <span>Email</span>
+                <input type="text" name="email" placeholder="Email">
+            </div>
+            <div class="Password textcolor"> 
+                <span>Password</span>
+                <input type="password" name="pass" placeholder="*******************">  
+            </div>
+            {% if displayErrorMessage %}
+            <p>Incorrect email or password.</p>
+            {% endif %}
+            <a class="for">Forgot Your Password?</a>
+            <input class="log" type="submit" value="Log In"/>
+        </form>
+        <div class="sign textcolor">
+            <span>Don't have an account?</span>
+            <a>Sign Up</a>
+        </div>
+        <div class="Back">
+            <span class="aro"></span>
+            <img src="{% static 'Picture1.png' %}" alt="Saker not found">
+        </div>
+    </div>
+</body>
+</html>

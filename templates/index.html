@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="home-section">
+  <h2 class="text-center text-lg py-2 semibold-text bg-white">SHOP BY CONCEPT</h2>
+  <div class="grid grid-cols-3 grid-rows-1 h-72">
+    <div class="home-hero-container">
+      <img class="home-hero" src={% static 'pizza.jpeg' %}/>
+      <a href="#" class="home-concept">
+        <img src={% static 'pizza-concept.jpg' %}/>
+        <h2>Pizza Restaurant</h2>
+      </a>
+    </div>
+    <div class="home-hero-container">
+      <img class="home-hero" src={% static 'burger.jpeg' %}/>
+      <a href="#" class="home-concept">
+        <img src={% static 'burger-concept.jpg' %}/>
+        <h2>Burger Restaurant</h2>
+      </a>
+    </div>
+    <div class="home-hero-container">
+      <img class="home-hero" src={% static 'coffee.webp' %}/>
+      <a href="#" class="home-concept">
+        <img src={% static 'coffee-concept.jpg' %}/>
+        <h2>Coffee Shop</h2>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  function setRating(itemId, score, max) {
+    document.getElementById(itemId).style.width = `${score/max * 100}%`
+  }
+</script>
+
+<section class="home-section">
+
+  <h2 class="p-3 semibold-text">Best Sellers</h2>
+  <div class="grid grid-cols-2 grid-rows-3 mx-1 sm:grid-cols-3 sm:grid-rows-2 lg:grid-cols-6 lg:grid-rows-1">
+
+    {% for item in bestSellerItems %}
+    <a href="#" class=" transition m-2 p-1 border border-gold-regular bg-white rounded flex flex-col hover:scale-110">
+      <img class="object-cover h-full w-full" src="/media/{{item.mainImage}}"/>
+      <p class="w-full mt-3 font-semibold">{{item.title}}</p>
+      <p class="text-md regular-text w-full font-semibold">{{item.price}} EGP</p>
+      <button class="border transition border-gold-regular regular-text rounded-lg px-2 my-3 hover:bg-gold-regular hover:text-white">Add to Cart</button>
+      <button class="border transition border-gold-regular regular-text rounded-lg px-2 my-3 hover:bg-gold-regular hover:text-white">Buy Now</button>
+      <div class="flex w-full h-fit">
+        <div class="bg-gray-500 w-full rating">
+          <div class="bg-gold-regular h-full" id="bs-{{item.title}}">
+            <script>
+              setRating("bs-{{item.title}}", {{item.rating}}, 5)
+            </script>
+          </div>
+        </div>
+        <div class="font-bold bg-gold-regular text-white px-1 mx-2 rounded-md text-sm">{{item.rating}}</div>
+        <p class="semibold-text">({{item.reviewCount}})</p>
+      </div>
+    </a>
+    {% endfor %}
+
+  </div>
+
+</section>
+
+<section class="home-section">
+  <div class="grid grid-cols-2 grid-rows-3 mx-1 sm:grid-cols-3 sm:grid-rows-2 lg:grid-cols-6 lg:grid-rows-1">
+
+    <a href="#">
+      <img class="m-2" src={% static 'espresso-machines.jpg' %}/>
+    </a>
+
+    {% for item in espressoMachines %}
+    <a href="#" class=" transition m-2 p-1 border border-gold-regular bg-white rounded flex flex-col hover:scale-110">
+      <img class="object-cover h-full w-full" src="/media/{{item.mainImage}}"/>
+      <p class="w-full mt-3 font-semibold">{{item.title}}</p>
+      <p class="text-md regular-text w-full font-semibold">{{item.price}} EGP</p>
+      <button class="border transition border-gold-regular regular-text rounded-lg px-2 my-3 hover:bg-gold-regular hover:text-white">Add to Cart</button>
+      <button class="border transition border-gold-regular regular-text rounded-lg px-2 my-3 hover:bg-gold-regular hover:text-white">Buy Now</button>
+      <div class="flex w-full h-fit">
+        <div class="bg-gray-500 w-full rating">
+          <div class="bg-gold-regular h-full" id="em-{{item.title}}">
+            <script>
+              setRating("em-{{item.title}}", "{{item.rating}}", 5)
+            </script>
+          </div>
+        </div>
+        <div class="font-bold bg-gold-regular text-white px-1 mx-2 rounded-md text-sm">{{item.rating}}</div>
+        <p class="semibold-text">({{item.reviewCount}})</p>
+      </div>
+    </a>
+    {% endfor %}
+
+  </div>
+  <div class="flex bold-text justify-end">
+    <a href="#" class="m-3 text-lg flex items-center nav-link">
+      <p class="mx-2">See More</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6 13v-2h8l-3.5-3.5l1.42-1.42L17.84 12l-5.92 5.92l-1.42-1.42L14 13H6m16-1a10 10 0 0 1-10 10A10 10 0 0 1 2 12A10 10 0 0 1 12 2a10 10 0 0 1 10 10m-2 0a8 8 0 0 0-8-8a8 8 0 0 0-8 8a8 8 0 0 0 8 8a8 8 0 0 0 8-8Z"/></svg>
+    </a>
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="grid grid-cols-2 grid-rows-3 mx-1 sm:grid-cols-3 sm:grid-rows-2 lg:grid-cols-6 lg:grid-rows-1">
+
+    <a href="#">
+      <img class="m-2" src={% static 'espresso-machines.jpg' %}/>
+    </a>
+
+    {% for item in cookingEquipment %}
+    <a href="#" class=" transition m-2 p-1 border border-gold-regular bg-white rounded flex flex-col hover:scale-110">
+      <img class="object-cover h-full w-full" src="/media/{{item.mainImage}}"/>
+      <p class="w-full mt-3 font-semibold">{{item.title}}</p>
+      <p class="text-md regular-text w-full font-semibold">{{item.price}} EGP</p>
+      <button class="border transition border-gold-regular regular-text rounded-lg px-2 my-3 hover:bg-gold-regular hover:text-white">Add to Cart</button>
+      <button class="border transition border-gold-regular regular-text rounded-lg px-2 my-3 hover:bg-gold-regular hover:text-white">Buy Now</button>
+      <div class="flex w-full h-fit">
+        <div class="bg-gray-500 w-full rating">
+          <div class="bg-gold-regular h-full" id="ce-{{item.title}}">
+            <script>
+              setRating("ce-{{item.title}}", "{{item.rating}}", 5)
+            </script>
+          </div>
+        </div>
+        <div class="font-bold bg-gold-regular text-white px-1 mx-2 rounded-md text-sm">{{item.rating}}</div>
+        <p class="semibold-text">({{item.reviewCount}})</p>
+      </div>
+    </a>
+    {% endfor %}
+
+  </div>
+  <div class="flex bold-text justify-end">
+    <a href="#" class="m-3 text-lg flex items-center nav-link">
+      <p class="mx-2">See More</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6 13v-2h8l-3.5-3.5l1.42-1.42L17.84 12l-5.92 5.92l-1.42-1.42L14 13H6m16-1a10 10 0 0 1-10 10A10 10 0 0 1 2 12A10 10 0 0 1 12 2a10 10 0 0 1 10 10m-2 0a8 8 0 0 0-8-8a8 8 0 0 0-8 8a8 8 0 0 0 8 8a8 8 0 0 0 8-8Z"/></svg>
+    </a>
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="grid grid-cols-2 grid-rows-3 mx-1 sm:grid-cols-3 sm:grid-rows-2 lg:grid-cols-6 lg:grid-rows-1">
+
+    <a href="#">
+      <img class="m-2" src={% static 'espresso-machines.jpg' %}/>
+    </a>
+
+    {% for item in refrigerators %}
+    <a href="#" class=" transition m-2 p-1 border border-gold-regular bg-white rounded flex flex-col hover:scale-110">
+      <img class="object-cover h-full w-full" src="/media/{{item.mainImage}}"/>
+      <p class="w-full mt-3 font-semibold">{{item.title}}</p>
+      <p class="text-md regular-text w-full font-semibold">{{item.price}} EGP</p>
+      <button class="border transition border-gold-regular regular-text rounded-lg px-2 my-3 hover:bg-gold-regular hover:text-white">Add to Cart</button>
+      <button class="border transition border-gold-regular regular-text rounded-lg px-2 my-3 hover:bg-gold-regular hover:text-white">Buy Now</button>
+      <div class="flex w-full h-fit">
+        <div class="bg-gray-500 w-full rating">
+          <div class="bg-gold-regular h-full" id="r-{{item.title}}">
+            <script>
+              setRating("r-{{item.title}}", "{{item.rating}}", 5)
+            </script>
+          </div>
+        </div>
+        <div class="font-bold bg-gold-regular text-white px-1 mx-2 rounded-md text-sm">{{item.rating}}</div>
+        <p class="semibold-text">({{item.reviewCount}})</p>
+      </div>
+    </a>
+    {% endfor %}
+
+  </div>
+  <div class="flex bold-text justify-end">
+    <a href="#" class="m-3 text-lg flex items-center nav-link">
+      <p class="mx-2">See More</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6 13v-2h8l-3.5-3.5l1.42-1.42L17.84 12l-5.92 5.92l-1.42-1.42L14 13H6m16-1a10 10 0 0 1-10 10A10 10 0 0 1 2 12A10 10 0 0 1 12 2a10 10 0 0 1 10 10m-2 0a8 8 0 0 0-8-8a8 8 0 0 0-8 8a8 8 0 0 0 8 8a8 8 0 0 0 8-8Z"/></svg>
+    </a>
+  </div>
+</section>
+
+{% endblock content %}

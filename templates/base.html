@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock title %}</title>
+  <link rel="stylesheet" href={% static 'index.css' %}>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  {% block dependencies %}{% endblock dependencies %}
+</head>
+<body>
+  <header class="relative">
+    <div class="flex items-center m-6">
+      <img class="logo" src={% static 'logo.png' %} />
+      <form class="w-full flex">
+        <input class="border w-full rounded-l" type="search" />
+        <input class="text-white bg-gold-regular rounded-r py-2 px-4 hover:bg-yellow-500" type="submit" value="Search" />
+      </form>
+      <nav class="flex">
+        <a class="nav-link" href="#">
+          <span class="iconify mr-2" data-icon="material-symbols:person-outline-rounded" data-width="30"></span>
+          <a href="/login" class="text-lg hidden sm:block">{{username}}</a>
+        </a>
+        <a class="nav-link" href="/cart">
+          <span class="iconify" data-icon="material-symbols:shopping-cart-outline" data-width="30"></span>
+        </a>
+      </nav>
+    </div>
+    <ul class="flex justify-evenly text-gold-regular">
+      {% if extraCategories %}
+      <li>
+        <button class="flex nav-link" onclick="toggleCatDropdown()">
+          <span class="iconify mr-3" data-icon="material-symbols:menu-rounded" data-width="30"></span>
+          ALL CATEGORIES
+        </button>
+      </li>
+      {% endif %}
+      {% for mainCategory in mainCategories %}
+      <li><a class="nav-link" href="/category/{{mainCategory.id}}">{{mainCategory.title}}</a></li>
+      {% endfor %}
+    </ul>
+
+    {% if extraCategories %}
+    <div class="hidden absolute z-10 bg-white p-3 rounded" id="cat-dropdown">
+      <ul>
+        {% for extraCategory in extraCategories %}
+        <li class="py-2"><a class="nav-link" href="/category/{{extraCategory.id}}">{{extraCategory.title}}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <script>
+      const catDropdown = document.getElementById("cat-dropdown")
+      var catDropdownHidden = true
+      function toggleCatDropdown() {
+        if (catDropdownHidden) {
+          catDropdown.style.display = "flex"
+          catDropdownHidden = false
+        } else {
+          catDropdown.style.display = "none"
+          catDropdownHidden = true
+        }
+      }
+    </script>
+    {% endif %}
+  </header>
+
+  {% block content %}{% endblock content %}
+
+  <footer class="bg-blue-100 p-6">
+    <img class="logo margin mb-5" src={% static 'logo.png' %} />
+    <div class="flex justify-between">
+      <div class="flex items-center">
+        <ul>
+          <li class="m-3"><a href="#" class="nav-link">Terms and Conditions</a></li>
+          <li class="m-3"><a href="#" class="nav-link">Installation &#38; Service</a></li>
+          <li class="m-3"><a href="#" class="nav-link">Orders and Tracking</a></li>
+          <li class="m-3"><a href="#" class="nav-link">Contact Us</a></li>
+          <li class="m-3"><a href="#" class="nav-link">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="flex items-center">
+        <ul>
+          <li class="m-3"><a href="#" class="nav-link">Returns and Refunds</a></li>
+          <li class="m-3"><a href="#" class="nav-link">Shipping and Delivery</a></li>
+          <li class="m-3"><a href="#" class="nav-link">Privacy Policy</a></li>
+          <li class="m-3"><a href="#" class="nav-link">FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-gold-regular mt-3">© 2023 - Powered by Equipen. All Rights Reserved</p>
+  </footer>
+</body>
+</html>
